@@ -1,4 +1,3 @@
- 
 import bs4
 from bs4 import BeautifulSoup
 import requests 
@@ -8,19 +7,19 @@ url = "https://rpa.hybrydoweit.pl/#articles"
 
 soup = BeautifulSoup(requests.get(url).text, features="html.parser")
 
-t1 = soup.find(id="articles")
-t = t1.find_all('h3') 
-tittle = []
+#wydobycie ze znacznika "h3" tytułów 
+t = soup.find(id="articles").find_all('h3') 
+#utworznie pustego słownika
+title = []
 
-for tittles in t:
-    result = tittles.text.strip()
-    tittle.append(result)
+#pętla dodaje do listy "title" kolejne tytuły ze znacznika "h3"
+for titles in t:
+    result = titles.text.strip()
+    title.append(result)
     
-print(len(tittle))
+print(len(title))
 
-i1 = soup.find(id="articles")
-i = i1.find_all('li')
-
+i = soup.find(id="articles").find_all('li')
 industry = []
 
 for industries in i:
@@ -29,10 +28,7 @@ for industries in i:
 
 print(len(industry))
 
-
-l1 = soup.find(id="articles")
-l = l1.find_all('a')
-
+l = soup.find(id="articles").find_all('a')
 link = []
 
 for links in l:
@@ -41,10 +37,11 @@ for links in l:
 
 print(len(link))
 
-
-data = pandas.DataFrame({'Link': link, 'Branża': industry,'Tytuł': tittle})
+#tworzenie tabeli z zebranych słowników 
+data = pandas.DataFrame({'Link': link, 'Branża': industry,'Tytuł': title})
+#zapis tabeli do pliku excel
 data.to_excel("dane.xlsx", index=False)
-#print(data)
+
 
 
 
