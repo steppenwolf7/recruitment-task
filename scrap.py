@@ -37,7 +37,7 @@ for links in l:
 
 print(len(link))
 
-#tworzenie tabeli z zebranych słowników 
+#tworzenie tabeli z zebranych list  
 data = pandas.DataFrame({'Link': link, 'Branża': industry,'Tytuł': title})
 #zapis tabeli do pliku excel
 data.to_excel("dane.xlsx", index=False)
