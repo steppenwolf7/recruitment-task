@@ -9,7 +9,7 @@ soup = BeautifulSoup(requests.get(url).text, features="html.parser")
 
 #wydobycie ze znacznika "h3" tytułów 
 t = soup.find(id="articles").find_all('h3') 
-#utworznie pustego słownika
+#utworznie pustej listy
 title = []
 
 #pętla dodaje do listy "title" kolejne tytuły ze znacznika "h3"
