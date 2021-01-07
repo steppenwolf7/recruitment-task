@@ -1,7 +1,7 @@
-This is recruitment task
+This is recruitment task.
 
-Wersja: Pythona3.5.2
-Dodadkowo zainstalowane biblioteki:
+Version: Python3.5.2
+Additional libraries:
 beautifulsoup4==4.8.2
 openpyxl==2.6.4
 pandas==0.24.2
